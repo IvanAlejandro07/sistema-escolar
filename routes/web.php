@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Materias;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AlumnosController;
 
 Route::get('/', function () {
     return view('index');
@@ -19,44 +20,35 @@ Route::get('/auth', function () {
 
 
 
-Route::controller(AdminController::class) -> group(function(){
+Route::controller(AdminController::class)->group(function () {
     Route::get('/admin',                    'home')->name('admin.dashboardadmin');
-    
+
     Route::get('/admin/alumnos',            'mostrarAlumnos')->name('admin.alumnos');
     Route::get('/admin/registraralumno',    'registrarAlumno')->name('admin.registroalumno');
-    
+
     Route::get('/admin/docentes',           'mostrarDocentes')->name('admin.docentes');
     Route::get('/admin/registrardocente',   'registrarDocente')->name('admin.registrodocente');
 
 
-    
+
     Route::get('/admin/materias',            'mostrarMaterias')->name('admin.materias');
-    Route::get('/admin/fmateria',           'registrarMateria')->name('admin.materia');
+    Route::get('/admin/fmateria',            'registrarMateria')->name('admin.materia');
     Route::post('/admin/gmateria',           'guardarMateria')->name('admin.gmateria');
+});
+
+
+Route::controller(AlumnosController::class)->group(function () {
+
+    Route::get('/alumno',                            'home')->name('alumno.dashboardalumno');
+    Route::get('/alumno/calificaciones',             'mostrarCalificaciones')->name('alumno.calificaciones');
+    Route::get('/alumno/grupos',                     'mostrarGrupos')->name('alumno.grupos');
+
 });
 
 
 
 
 
-
-
-
-
-
-
-//alumnos
-Route::get('/alumno', function () {
-    return view('alumno.dashboardalumno');
-})->name('alumno.dashboardalumno');
-
-Route::get('/alumno/calificaciones', function () {
-    return view('alumno.calificaciones');
-})->name('alumno.calificaciones');
-
-Route::get('/alumno/grupos', function () {
-    return view('alumno.grupos');
-})->name('alumno.grupos');
 
 
 
@@ -75,6 +67,3 @@ Route::get('/docente/alumnos', function () {
 Route::get('/docente/grupos', function () {
     return view('docente.grupos');
 })->name('docente.grupos');
-
-
-
