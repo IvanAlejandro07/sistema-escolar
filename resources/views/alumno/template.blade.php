@@ -43,7 +43,10 @@ https://templatemo.com/tm-557-grad-school
         <a>Bienvenido Alumno</a>
         <li><a href="{{ route('alumno.calificaciones') }}" class="external">Calificaciones</a></li>
         <!-- <li><a href="#section5">Video</a></li> -->
+        
         <li><a href="{{ route('alumno.grupos') }}" class="external">Grupos</a></li>
+        <li><a href="{{ route('alumno.informacion') }}" class="external">Mi informacion</a></li>
+        <li><a href="{{ route('alumno.configurar') }}" class="external">Configurar</a></li>
         <li><a href="{{ route('auth.login') }}" class="external">Cerrar sesión</a></li>
       </ul>
     </nav>

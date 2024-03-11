@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('apPaterno');
             $table->string('apMaterno');
             $table->integer('noEmpleado')->unique();
-            $table->tinyInteger('activo')->default(1);
             $table->unsignedBigInteger('idUsuario');
             $table->timestamps();
 

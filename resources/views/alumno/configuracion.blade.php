@@ -1,4 +1,5 @@
-@extends('admin.template')
+@extends('alumno.template')
+
 @section('contenido')
 
 <section class="section coming-soon" data-section="section3">
@@ -7,47 +8,45 @@
             <div class="col-md-7 col-xs-12">
                 <div class="continer centerIt">
                     <div>
-                        <h4>¡Bienvenid@ al <em>Nueva materia</em>!</h4>
+                        <h4>Configuracion <em>Actualize su informacion</em>!</h4>
                     </div>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="right-content">
                     <div class="top-content">
-                        <h6>Complete el <em>siguiente formulario</em> para registrar materia:</h6>
+                        <h6>Complete el <em>siguiente formulario para</em> Actualizar tu informacion(a):</h6>
                     </div>
-                    <form id="materia" action="{{ route('admin.gmateria') }}" method="post">
+                    <form id="contact" action="{{ route('alumno.guardarinformacion') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="clave" type="text" class="form-control" id="clave" placeholder="Clave" required="">
+                                    <input name="nombres" type="text" class="form-control" id="nombre" placeholder="Nombres" required="">
                                 </fieldset>
                             </div>
+
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre de la materia" required="">
+                                    <input name="apPaterno" type="text" class="form-control" id="apPaterno" placeholder="A paterno" required="">
+                                </fieldset>
+                            </div>
+
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <input name="apMaterno" type="text" class="form-control" id="apPaterno" placeholder="Apellido materno" required="">
                                 </fieldset>
                             </div>
                             
                             <div class="col-md-12">
-                            </div>
-                            <div class="col-md-12">
                                 <fieldset>
                                     <button type="submit" id="form-submit" class="button">Agregar</button>
                                 </fieldset>
-
                                 <fieldset>
                                     @if ( session('mensaje') )
                                     <div class="alert alert-success">{{ session('mensaje') }}</div>
                                     @endif
                                 </fieldset>
-
-                                <fieldset>
-                                    <a href="{{ route('admin.materias') }}">Mostrar Materias</a>
-                                </fieldset>
-
-                                
                             </div>
                         </div>
                     </form>
@@ -81,5 +80,6 @@
         </div>
     </div>
 </section>
+
 
 @endsection

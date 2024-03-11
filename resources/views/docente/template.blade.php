@@ -43,6 +43,8 @@ https://templatemo.com/tm-557-grad-school
         <li>Bienvenido Docente</li>
         <li><a href="{{ route('docente.alumnos') }}" class="external">Alumnos</a></li>
         <li><a href="{{ route('docente.grupos') }}" class="external">Grupos</a></li>
+        <li><a href="{{ route('docente.informacion') }}" class="external">Mi informacion</a></li>
+        <li><a href="{{ route('docente.configurar') }}" class="external">Configurar</a></li>
         <li><a href="{{ route('auth.login') }}" class="external">Cerrar sesión</a></li>
       </ul>
     </nav>

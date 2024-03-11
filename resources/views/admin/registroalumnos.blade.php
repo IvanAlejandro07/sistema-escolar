@@ -16,36 +16,27 @@
           <div class="top-content">
             <h6>Complete el <em>siguiente formulario</em> para registrar al alumno(a):</h6>
           </div>
-          <form id="contact" action="" method="post">
+          <form id="contact" action="{{ route('admin.guardaralumno') }}" method="post">
+            @csrf
             <div class="row">
               <div class="col-md-12">
                 <fieldset>
-                  <input name="name" type="text" class="form-control" id="name" placeholder="Nombre completo" required="">
+                  <input name="correo" type="email" class="form-control" id="correo" placeholder="Correo electronico" required="">
                 </fieldset>
               </div>
               <div class="col-md-12">
                 <fieldset>
-                  <input name="email" type="text" class="form-control" id="email" placeholder="Correo electrónico" required="">
-                </fieldset>
-              </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <input name="group" type="text" class="form-control" id="group" placeholder="Grupo" required="">
-                </fieldset>
-              </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <input name="address" type="text" class="form-control" id="address" placeholder="Dirección" required="">
-                </fieldset>
-              </div>
-              <div class="col-md-12">
-                <fieldset>
-                  <input name="registrationnumber" type="text" class="form-control" id="registrationnumber" placeholder="Matrícula" required="">
+                  <input name="contrasena" type="password" class="form-control" id="password" placeholder="Contraseña" required="">
                 </fieldset>
               </div>
               <div class="col-md-12">
                 <fieldset>
                   <button type="submit" id="form-submit" class="button">Agregar</button>
+                </fieldset>
+                <fieldset>
+                  @if ( session('mensaje') )
+                  <div class="alert alert-success">{{ session('mensaje') }}</div>
+                  @endif
                 </fieldset>
               </div>
             </div>
