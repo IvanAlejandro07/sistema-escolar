@@ -20,61 +20,20 @@ Route::get('/auth', function () {
 
 
 Route::controller(AdminController::class) -> group(function(){
-    Route::get('/admin', 'home')->name('admin.dashboardadmin');
-});
-
-
-
-
-
-//admin
-// Route::get('/admin', function () {
-//     return view('admin.dashboardadmin');
-// })->name('admin.dashboardadmin');
-
-Route::get('/admin/registraralumno', function () {
-    return view('admin.registroalumnos');
-})->name('admin.registroalumno');
-
-Route::get('/admin/registrardocente', function () {
-    return view('admin.registrodocentes');
-})->name('admin.registrodocente');
-
-Route::get('/admin/docentes', function () {
-    return view('admin.docentes');
-})->name('admin.docentes');
-
-Route::get('/admin/alumnos', function () {
-    return view('admin.alumnos');
-})->name('admin.alumnos');
-
-
-Route::get('/admin/materia', function () {
-
-    return view('admin.materia');
-})->name('admin.materia');
-
-Route::get('/admin/materias', function () {
-    $materias = Materias::all();
-
-    return view('admin.materias', ['materias'=>$materias]);
-})->name('admin.materias');
-
-
-Route::post('/admin/materia', function (Request $request) {
-
-    $nuevaMateria = new App\Models\Materias();
-
-    $nuevaMateria->clave = $request->clave;
-    $nuevaMateria->nombre = $request->nombre;
-    $nuevaMateria->activo = $request->activo;
+    Route::get('/admin',                    'home')->name('admin.dashboardadmin');
     
+    Route::get('/admin/alumnos',            'mostrarAlumnos')->name('admin.alumnos');
+    Route::get('/admin/registraralumno',    'registrarAlumno')->name('admin.registroalumno');
+    
+    Route::get('/admin/docentes',           'mostrarDocentes')->name('admin.docentes');
+    Route::get('/admin/registrardocente',   'registrarDocente')->name('admin.registrodocente');
 
-    $nuevaMateria->save();
 
-    return back()->with('mensaje', 'Materia agregada');
-})->name('admin.gmateria');
-
+    
+    Route::get('/admin/materias',            'mostrarMaterias')->name('admin.materias');
+    Route::get('/admin/fmateria',           'registrarMateria')->name('admin.materia');
+    Route::post('/admin/gmateria',           'guardarMateria')->name('admin.gmateria');
+});
 
 
 

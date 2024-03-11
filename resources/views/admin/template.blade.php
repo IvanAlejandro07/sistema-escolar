@@ -41,10 +41,11 @@ https://templatemo.com/tm-557-grad-school
     <nav id="menu" class="main-nav" role="navigation">
       <ul class="main-menu">
         <li>Bienvenido Admin</li>
+        <li><a href="{{ route('admin.materias') }}" class="external">Materias</a></li>
         <li><a href="{{ route('admin.docentes') }}" class="external">Docentes</a></li>
         <li><a href="{{ route('admin.alumnos') }}" class="external">Alumnos</a></li>
+        <li><a href="{{ route('admin.materia') }}" class="external">Agregar Materia</a></li>
         <li><a href="{{ route('admin.registroalumno') }}" class="external">Agregar Alumno</a></li>
-        <!-- <li><a href="#section5">Video</a></li> -->
         <li><a href="{{ route('admin.registrodocente') }}" class="external">Agregar Docente</a></li>
         <li><a href="{{ route('auth.login') }}" class="external">Cerrar sesión</a></li>
       </ul>

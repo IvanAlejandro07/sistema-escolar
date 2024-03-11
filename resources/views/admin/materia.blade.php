@@ -46,6 +46,12 @@
                                     <div class="alert alert-success">{{ session('mensaje') }}</div>
                                     @endif
                                 </fieldset>
+
+                                <fieldset>
+                                    <a href="{{ route('admin.materias') }}">Mostrar Materias</a>
+                                </fieldset>
+
+                                
                             </div>
                         </div>
                     </form>
