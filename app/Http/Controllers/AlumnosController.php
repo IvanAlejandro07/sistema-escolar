@@ -17,9 +17,6 @@ class AlumnosController extends Controller
     }
     public function mostrarGrupos()
     {
-
-        
-
         return view('alumno.grupos');
     }
 }

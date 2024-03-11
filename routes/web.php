@@ -5,6 +5,7 @@ use App\Models\Materias;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlumnosController;
+use App\Http\Controllers\DocentesController;
 
 Route::get('/', function () {
     return view('index');
@@ -46,24 +47,14 @@ Route::controller(AlumnosController::class)->group(function () {
 });
 
 
+Route::controller(DocentesController::class)->group(function(){
+
+    Route::get('/docente',                            'home')->name('docente.dashboarddocente');
+    Route::get('/docente/alumnos',                    'mostrarAlumnos')->name('docente.alumnos');
+    Route::get('/docente/grupos',                     'mostrarGrupos')->name('docente.grupos');
+
+});
 
 
 
 
-
-
-
-//docentes
-Route::get('/docente', function () {
-    return view('docente.dashboarddocente');
-})->name('docente.dashboarddocente');
-
-
-Route::get('/docente/alumnos', function () {
-    return view('docente.alumnos');
-})->name('docente.alumnos');
-
-
-Route::get('/docente/grupos', function () {
-    return view('docente.grupos');
-})->name('docente.grupos');
