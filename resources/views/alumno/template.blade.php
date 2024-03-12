@@ -40,7 +40,7 @@ https://templatemo.com/tm-557-grad-school
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
       <ul class="main-menu">
-        <a>Bienvenido Alumno</a>
+        <a>Bienvenido {{ $valor_almacenado }}</a>
         <li><a href="{{ route('alumno.calificaciones') }}" class="external">Calificaciones</a></li>
         <!-- <li><a href="#section5">Video</a></li> -->
         

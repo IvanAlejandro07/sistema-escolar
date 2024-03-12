@@ -36,7 +36,8 @@ class AuthController extends Controller
 
         if ( count($consulta) >= 1 ){
             $datos = $consulta[0];
-            $datos->idUsuario = session('idUsuario');
+
+            session(['IdUsuario'=>$datos->idUsuario]) ;
 
             switch ($datos->idRol) {
                 case 1:
