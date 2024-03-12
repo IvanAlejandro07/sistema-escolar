@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2024 a las 05:52:34
+-- Tiempo de generación: 12-03-2024 a las 18:09:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -61,6 +61,13 @@ CREATE TABLE `calificaciones` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `calificaciones`
+--
+
+INSERT INTO `calificaciones` (`idCalificacion`, `Calificacion`, `idAlumno`, `idMateria`, `created_at`, `updated_at`) VALUES
+(1, 8, 1, 1, '2024-03-12 16:43:32', '2024-03-12 16:43:32');
+
 -- --------------------------------------------------------
 
 --
@@ -110,13 +117,20 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `grupos` (
   `idGrupo` bigint(20) UNSIGNED NOT NULL,
-  `nombre` double NOT NULL,
+  `nombre` varchar(255) NOT NULL,
   `idDocente` bigint(20) UNSIGNED NOT NULL,
   `idAlumno` bigint(20) UNSIGNED NOT NULL,
   `idMateria` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `grupos`
+--
+
+INSERT INTO `grupos` (`idGrupo`, `nombre`, `idDocente`, `idAlumno`, `idMateria`, `created_at`, `updated_at`) VALUES
+(1, 'Arquitectura', 1, 1, 1, '2024-03-12 16:00:00', '2024-03-12 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -269,7 +283,8 @@ INSERT INTO `usuarios` (`idUsuario`, `correo`, `contrasena`, `idRol`, `activo`, 
 (1, 'ivan@gmail.com', '123', 3, 1, '2024-03-11 13:55:43', '2024-03-11 13:55:43'),
 (2, 'genaro@gmail.com', '123', 3, 1, '2024-03-11 13:55:53', '2024-03-11 13:55:53'),
 (3, 'alan@gmail.com', '123', 2, 1, '2024-03-11 13:56:00', '2024-03-11 13:56:00'),
-(4, 'azucena@gmail.com', '123', 2, 1, '2024-03-11 13:56:12', '2024-03-11 13:56:12');
+(4, 'azucena@gmail.com', '123', 2, 1, '2024-03-11 13:56:12', '2024-03-11 13:56:12'),
+(5, 'admin@gmail.com', '123', 1, 1, '2024-03-12 15:11:31', '2024-03-12 15:11:31');
 
 --
 -- Índices para tablas volcadas
@@ -375,7 +390,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `idCalificacion` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idCalificacion` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
@@ -393,7 +408,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `idGrupo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idGrupo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -429,7 +444,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idUsuario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
