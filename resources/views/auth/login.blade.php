@@ -68,18 +68,19 @@ https://templatemo.com/tm-557-grad-school
             <div class="top-content">
               <h6>Inicia <em>Sesión</em> Con tu cuenta</h6>
             </div>
-            <form id="contact" action="" method="post">
+            <form id="contact" action="{{route('auth.auth0')}}" method="post">
+              @csrf
               <div class="row">
                 <div class="col-md-12">
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="email" type="text" class="form-control" id="email" placeholder="Correo electrónico" required="">
+                    <input name="correo" type="text" class="form-control" id="correo" placeholder="Correo electrónico" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="password" type="password" class="form-control" id="password" placeholder="Contraseña" required="">
+                    <input name="contrasena" type="password" class="form-control" id="password" placeholder="Contraseña" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">

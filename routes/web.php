@@ -2,18 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Materias;
+use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlumnosController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DocentesController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/auth', function () {
-    return view('auth.login');
-})->name('auth.login');
+Route::controller(AuthController::class)->group(function(){
+
+    Route::get('/auth', 'flogin')->name('auth.login');
+    Route::post('/auth', 'login')->name('auth.auth0');
+});
 
 
 
