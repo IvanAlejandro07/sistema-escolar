@@ -26,10 +26,7 @@ class AuthController extends Controller
             ->where('contrasena', $request->contrasena)
             ->get();
 
-        $datos = $consulta[0];
-
-        echo $datos->correo;
-        echo $datos->contrasena;
+        
 
 
         // if( $datos[0]->correo == $request->correo and $datos[0]->contrasena == $request->contrasena){
@@ -37,24 +34,28 @@ class AuthController extends Controller
         //     $info = Usuarios::select('idUsuario','idRol')->where('correo', $request->correo)->where('contrasena', $request->contrasena)->get();
 
 
+        if ( count($consulta) >= 1 ){
+            $datos = $consulta[0];
+            $datos->idUsuario = session('idUsuario');
 
-
-
-        switch ($datos->idRol) {
-            case 1:
-                return redirect('admin');
-                break;
-
-            case 2:
-                return redirect('docente');
-                break;
-
-            case 3:
-                return redirect('alumno');
-                break;
+            switch ($datos->idRol) {
+                case 1:
+                    return redirect('admin');
+                    break;
+    
+                case 2:
+                    return redirect('docente');
+                    break;
+    
+                case 3:
+                    return redirect('alumno');
+                    break;
+            }
         }
+
+      
         // }
 
-        // return 'No entro' ;
+        return back()->with('mensaje', 'Credenciales incorrectas');
     }
 }

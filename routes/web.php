@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::controller(AuthController::class)->group(function(){
 
     Route::get('/auth', 'flogin')->name('auth.login');
+    
     Route::post('/auth', 'login')->name('auth.auth0');
 });
 

@@ -92,6 +92,11 @@ https://templatemo.com/tm-557-grad-school
                       <button type="submit" id="form-submit" class="button">Iniciar Sesión</button>
                     </fieldset>
                     <fieldset>
+                      @if ( session('mensaje') )
+                      <div class="alert alert-danger">{{ session('mensaje') }}</div>
+                      @endif
+                    </fieldset>
+                    <fieldset>
                       <a href="{{ route('admin.dashboardadmin') }}">admin</a>
                     </fieldset>
                     <fieldset>
