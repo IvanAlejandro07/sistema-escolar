@@ -13,21 +13,17 @@
             <table class="table table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Carrera</th>
-                        <th scope="col">Grupo</th>
-                        <th scope="col">Cuatrimestre</th>
-                        <th scope="col">Nombre de la materia</th>
-                        <th scope="col">Periodo</th>
+                        <th scope="col">Materia</th>
+                        <th scope="col">Calificacion</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($calificaciones as $ca)
                     <tr>
-                        <th scope="row">Ing Desarrollo de software</th>
-                        <td>7TIDGS</td>
-                        <td>7</td>
-                        <td>Base de datos</td>
-                        <td>Sep-Dic-2024</td>
+                        <th scope="row">Arquitectura</th>
+                        <td>{{$ca->Calificacion}}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -12,21 +12,23 @@
             <table class="table table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Carrera</th>
-                        <th scope="col">Grupo</th>
-                        <th scope="col">Cuatrimestre</th>
-                        <th scope="col">Nombre de la materia</th>
-                        <th scope="col">Periodo</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellido paterno</th>
+                        <th scope="col">Apellido materno</th>
+                        <th scope="col">noEmpleado</th>
+                        <th scope="col">correo</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($informacion as $info)
                     <tr>
-                        <th scope="row">Ing Desarrollo de software</th>
-                        <td>7TIDGS</td>
-                        <td>7</td>
-                        <td>Base de datos</td>
-                        <td>Sep-Dic-2024</td>
+                        <th scope="row">{{$info->nombres}}</th>
+                        <td>{{$info->apPaterno}}</td>
+                        <td>{{$info->apMaterno}}</td>
+                        <td>{{$info->noEmpleado}}</td>
+                        <td>{{$info->correo}}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumnos;
+use App\Models\Calificaciones;
 use App\Models\Usuarios;
+use App\Models\Grupos;
 use Illuminate\Http\Request;
 
 class AlumnosController extends Controller
@@ -15,11 +17,14 @@ class AlumnosController extends Controller
 
     public function mostrarCalificaciones()
     {
-        return view('alumno.calificaciones');
+        $informacion = Calificaciones::where('idAlumno', 1)->get();
+        return view('alumno.calificaciones',['calificaciones'=>$informacion]);
     }
     public function mostrarGrupos()
     {
-        return view('alumno.grupos');
+        $informacion = Grupos::where('idAlumno', 1)->get();
+
+        return view('alumno.grupos',['grupos'=>$informacion]);
     }
 
     public function configurar()

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('grupos', function (Blueprint $table) {
             $table->bigIncrements('idGrupo');
-            $table->double('nombre');
+            $table->string('nombre');
             $table->unsignedBigInteger('idDocente');
             $table->unsignedBigInteger('idAlumno');
             $table->unsignedBigInteger('idMateria');

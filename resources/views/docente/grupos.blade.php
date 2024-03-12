@@ -10,23 +10,17 @@
 
     <div class="video-overlay header-text">
         <div class="caption">
-            <table class="table table-dark">
+        <table class="table table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Id materia</th>
-                        <th scope="col">Clave</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Activa</th>
-                        <th scope="col">Otros</th>
+                        <th scope="col">Grupos</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>5asd48</td>
-                        <td>Matematicas</td>
-                        <td>si</td>
-                        <td><button class="btn btn-primary"><a href="">Ver alumnos</a></button></td>
+                        @foreach($grupos as $info)
+                        <th scope="row">{{$info->nombre}}</th>
+                        @endforeach
                     </tr>
                 </tbody>
             </table>

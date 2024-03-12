@@ -10,26 +10,26 @@
 
     <div class="video-overlay header-text">
         <div class="caption">
-            <table class="table table-dark">
+        <table class="table table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellido paterno</th>
+                        <th scope="col">Apellido materno</th>
                         <th scope="col">Matricula</th>
-                        <th scope="col">Activo</th>
-                        <th scope="col">Calificación</th>
-                        <th scope="col">Opción </th>
+                        <th scope="col">Calificacion</th>
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($informacion as $info)
                     <tr>
-                        <th scope="row">Ivan</th>
-                        <td>Lopez</td>
-                        <td>20045102</td>
-                        <td>si</td>
-                        <td>8</td>
-                        <td><button class="btn btn-primary"> <a href="">Calificar</a> </button></td>
+                        <th scope="row">{{$info->nombres}}</th>
+                        <td>{{$info->apPaterno}}</td>
+                        <td>{{$info->apMaterno}}</td>
+                        <td>{{$info->Matricula}}</td>
+                        <td>{{$info->Calificacion}}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

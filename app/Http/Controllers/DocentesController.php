@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Docentes;
+use App\Models\Grupos;
+use App\Models\Alumnos;
 use Illuminate\Http\Request;
 
 class DocentesController extends Controller
@@ -13,11 +15,18 @@ class DocentesController extends Controller
     }
     public function mostrarAlumnos()
     {
-        return view('docente.alumnos');
+        $informacion = Alumnos::join('calificaciones as u', 'alumnos.idAlumno', '=', 'u.idAlumno')
+            
+            ->select('u.Calificacion', 'alumnos.nombres', 'alumnos.apPaterno', 'alumnos.apMaterno', 'alumnos.Matricula')
+            ->get();
+
+        return view('docente.alumnos',['informacion'=>$informacion]);
     }
     public function mostrarGrupos()
     {
-        return view('docente.grupos');
+        $informacion = Grupos::where('idDocente', 1)->get();
+
+        return view('docente.grupos',['grupos'=>$informacion]);
     }
     public function mostrarInformacion()
     {

@@ -7,6 +7,14 @@ use App\Models\Usuarios;
 
 class AuthController extends Controller
 {
+    public function verificar()
+    {
+        if($_SESSION['idUsuario'] == null){
+            return view('auth,login');
+        }
+    }
+
+
     public function flogin()
     {
         return view('auth.login');

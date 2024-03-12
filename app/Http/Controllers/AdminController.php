@@ -18,7 +18,12 @@ class AdminController extends Controller
 
     public function mostrarAlumnos()
     {
-        return view('admin.alumnos');
+        
+        $informacion = Alumnos::join('usuarios as u', 'alumnos.idUsuario', '=', 'u.idUsuario')
+            ->select('u.correo', 'alumnos.nombres', 'alumnos.apPaterno', 'alumnos.apMaterno', 'alumnos.Matricula')
+            ->get();
+
+        return view('admin.alumnos',['informacion'=>$informacion]);
     }
 
     public function registrarAlumno()
@@ -53,7 +58,11 @@ class AdminController extends Controller
 
     public function mostrarDocentes()
     {
-        return view('admin.docentes');
+        $informacion = Docentes::join('usuarios as u', 'docentes.idUsuario', '=', 'u.idUsuario')
+            ->select('u.correo', 'docentes.nombres', 'docentes.apPaterno', 'docentes.apMaterno', 'docentes.noEmpleado')
+            ->get();
+
+        return view('admin.docentes',['informacion'=>$informacion]);
     }
 
 
